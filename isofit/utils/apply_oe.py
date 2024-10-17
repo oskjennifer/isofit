@@ -282,7 +282,8 @@ def apply_oe(args):
         # parse flightline ID (GAO/CAO assumptions)
         dt = datetime.strptime(paths.fid[3:-5], "%Y%m%dt%H%M%S")
     elif args.sensor[:3] == "NA-":
-        dt = datetime.strptime(args.sensor[3:], "%Y%m%d")
+        epoch = int(paths.fid[54:64])
+        dt = datetime.utcfromtimestamp(epoch)
     else:
         raise ValueError(
             "Datetime object could not be obtained. Please check file name of input"
