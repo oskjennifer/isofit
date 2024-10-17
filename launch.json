@@ -1,0 +1,63 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "isofit",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/home/ray/isofit/isofit/utils/multisurface_oe.python",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": ["/home/ray/oil_slick/nongeorectified/$987299070FCE4431B3A78DB6B74196D0__00000066__00000010__1719546420-132469563-darksub-full-cube.dat", 
+            "/home/ray/oil_slick/igm/$987299070FCE4431B3A78DB6B74196D0__00000066__00000010__1719546420-132469563-loc", 
+            "/home/ray/oil_slick/igm/987299070FCE4431B3A78DB6B74196D0__00000066__00000010__1719546420-132469563-obs", 
+            "/home/ray/oil_slick/reflectance /home/ray/oil_slick/basic_config.json"]
+        },
+        {
+            "name": "obs_glt",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/home/ubuntu/ghost-imagery-process/tools/obs_glt_from_hsi_igm.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": ["/home/ubuntu/cherry_pt"]
+        },
+        {
+            "name": "Docker",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "python": {
+                "pathMappings": [
+                {
+                    "localRoot": "/home/ubuntu/cherry_pt",
+                    "remoteRoot": "/home/ray/cherry_pt"
+                }
+                ],
+                "projectType": "general"
+            }
+        },
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+        },
+        {
+            "name": "isofit fork",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "isofit",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": ["apply_oe", "medium_chunk/ang20170323t202244_rdn_7k-8k", "medium_chunk/ang20170323t202244_loc_7k-8k", "medium_chunk/ang20170323t202244_obs_7k-8k medium_chunk/L2A_reflectance", "ang", "--n_cores", "4", "--presolve",
+             "--empirical_line", "--emulator_base ${EMULATOR_PATH}", "--segmentation_size", "400", "--pressure_elevation", "-sp", "../20171108_Pasadena/configs/ang20171108t184227_surface.json"]
+        }
+    ]
+}
+
