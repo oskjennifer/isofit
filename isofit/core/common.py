@@ -696,6 +696,7 @@ def envi_header(inputpath):
         os.path.splitext(inputpath)[-1] == ".img"
         or os.path.splitext(inputpath)[-1] == ".dat"
         or os.path.splitext(inputpath)[-1] == ".raw"
+        or os.path.splitext(inputpat)[-1] == ".hsi"
     ):
         # headers could be at either filename.img.hdr or filename.hdr.  Check both, return the one that exists if it
         # does, if not return the latter (new file creation presumed).
