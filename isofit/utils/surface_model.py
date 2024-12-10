@@ -15,9 +15,9 @@
 #  limitations under the License.
 #
 # ISOFIT: Imaging Spectrometer Optimal FITting
+
 # Author: David R Thompson, david.r.thompson@jpl.nasa.gov
 #
-
 import os
 from types import SimpleNamespace
 
@@ -66,8 +66,10 @@ def surface_model(
     np.random.seed(seed)
 
     # Load configuration JSON into a local dictionary
-    configdir, _ = os.path.split(os.path.abspath(config_path))
-    config = json_load_ascii(config_path, shell_replace=True)
+    # configdir, _ = os.path.split(os.path.abspath(config_path))
+    # config = json_load_ascii(config_path, shell_replace=True)
+    configdir = '/home/ubuntu/controlled_release/1CF34BE270BC41EEAFC1CA86D45C759F__00000066__00000005__1732211443-48036571/'
+    config = json_load_ascii('/home/ubuntu/controlled_release/1CF34BE270BC41EEAFC1CA86D45C759F__00000066__00000005__1732211443-48036571/ang20171108t184227_surface.json', shell_replace=True)
 
     if wavelength_path:
         wavelength_file = wavelength_path
